@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Textdetektive</title>
+<meta name="description" content="Unterrichtseinheit Schlüsselwörter finden: PowerPoint, Arbeitsblätter, Karten, Hefteintrag, Hausaufgabe und iPad-Übungen für die 7. Klasse im Förderschwerpunkt Lernen.">
+<link rel="icon" type="image/svg+xml" href="uebung/icons/icon.svg">
+<link rel="apple-touch-icon" href="uebung/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#FCF5E9">
+<style>
+:root{
+  --creme:#FCF5E9; --papier:#FFFFFF; --navy:#14294D; --grau:#5B6577;
+  --gelb:#FFE14D; --gelb-hell:#FFF0A3; --beige:#D9C3A0; --linie:#E6DAC4;
+  --gruen:#3E8E6B;
+  --font:Verdana,Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--creme);color:var(--navy);font-family:var(--font);font-size:17px;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:6px}
+.fortschritt{position:fixed;inset:0 0 auto 0;height:6px;background:transparent;z-index:50}
+.fortschritt span{display:block;height:100%;width:0;background:var(--gelb);border-radius:0 6px 6px 0;transition:width .12s linear}
+.nav-wrap{position:sticky;top:12px;z-index:40;display:flex;justify-content:center;padding:0 12px;margin-top:12px}
+nav{display:flex;gap:4px;max-width:100%;overflow-x:auto;background:var(--papier);border:1.5px solid var(--linie);border-radius:999px;padding:5px;box-shadow:0 2px 10px rgba(20,41,77,.06);scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{white-space:nowrap;text-decoration:none;font-size:15px;min-height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;color:var(--navy)}
+nav a:hover{background:var(--creme)}
+nav a.aktiv{background:var(--gelb);font-weight:bold}
+main{max-width:760px;margin:0 auto;padding:0 20px 80px}
+.hero{padding:56px 0 24px;display:grid;grid-template-columns:1fr 200px;gap:24px;align-items:center}
+.hero img{width:200px;height:auto;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.kicker{font-size:14px;color:var(--grau);letter-spacing:.02em;margin:0 0 8px}
+h1{font-size:clamp(38px,8vw,60px);line-height:1.05;margin:0 0 16px;letter-spacing:-.01em}
+h1 mark{background:linear-gradient(transparent 55%,var(--gelb) 55%);color:inherit;padding:0 2px}
+.lead{font-size:19px;margin:0 0 22px;max-width:34ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.chips li{background:var(--papier);border:1.5px solid var(--linie);border-radius:999px;padding:4px 14px;font-size:14px}
+.knoepfe{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;border:2px solid var(--navy);background:var(--papier);color:var(--navy);font:inherit;font-size:16px;text-decoration:none;cursor:pointer;transition:transform .12s ease,background .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.gelb{background:var(--gelb)}
+.btn.klein{min-height:46px;padding:0 16px;font-size:15px;border-width:1.5px;border-radius:12px}
+section{padding:56px 0 0}
+h2{font-size:clamp(26px,5vw,34px);line-height:1.2;margin:0 0 8px}
+.unter{color:var(--grau);margin:0 0 24px;max-width:52ch}
+.plan{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0;padding:0;list-style:none}
+.plan a{display:block;text-decoration:none;background:var(--papier);border:1.5px solid var(--linie);border-radius:16px;padding:14px 14px 12px;height:100%;transition:border-color .12s,transform .12s}
+.plan a:hover{border-color:var(--navy);transform:translateY(-2px)}
+.plan b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--gelb);margin-bottom:8px}
+.plan span{display:block;font-size:15px;line-height:1.4}
+.stunde{background:var(--papier);border:1.5px solid var(--linie);border-radius:22px;padding:28px 26px 26px;margin-top:0}
+.stunde-kopf{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.badge{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--gelb);font-weight:bold;font-size:20px}
+.stunde h2{margin:0}
+.ziel{margin:6px 0 16px}
+.ablauf{margin:0 0 18px;padding-left:22px}
+.ablauf li{margin:2px 0}
+.folien{display:inline-flex;align-items:center;gap:8px;background:var(--gelb-hell);border-radius:10px;padding:4px 12px;font-size:15px;margin:0 0 18px}
+.material{display:grid;gap:10px;margin:0 0 18px;padding:0;list-style:none}
+.material li{display:grid;grid-template-columns:1fr auto;gap:10px 14px;align-items:center;border:1.5px solid var(--linie);border-radius:14px;padding:12px 14px;background:var(--creme)}
+.material strong{display:block;line-height:1.35}
+.material small{display:block;color:var(--grau);font-size:14px;line-height:1.45}
+.material .aktionen{display:flex;gap:8px;flex-wrap:wrap}
+.zip-zeile{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.online{background:var(--papier);border:1.5px solid var(--linie);border-radius:22px;padding:28px 26px;display:grid;grid-template-columns:1fr 170px;gap:24px;align-items:center}
+.online img.qr{width:170px;height:170px;border:1.5px solid var(--linie);border-radius:14px;padding:8px;background:#fff}
+.online p{margin:0 0 14px}
+.adresse{font-family:Menlo,Consolas,monospace;font-size:15px;background:var(--creme);border:1.5px dashed var(--beige);border-radius:10px;padding:8px 12px;display:inline-block;word-break:break-all}
+.tipps{margin:0;padding-left:22px}
+.fuerdich{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.fuerdich li{display:grid;grid-template-columns:1fr auto;gap:10px 14px;align-items:center;background:var(--papier);border:1.5px solid var(--linie);border-radius:14px;padding:12px 14px}
+.hinweis{background:var(--gelb-hell);border-radius:16px;padding:16px 20px;margin-top:20px}
+.hinweis p{margin:0}
+.hinweis p+p{margin-top:8px}
+footer{max-width:760px;margin:0 auto;padding:0 20px 56px;color:var(--grau);font-size:14px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--navy);color:#fff;border-radius:12px;padding:12px 18px;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;max-width:90vw}
+.toast.zeigen{opacity:1;transform:translate(-50%,0)}
+@media (max-width:640px){
+  body{font-size:16px}
+  .hero{grid-template-columns:1fr;padding-top:36px}
+  .hero img{width:150px;order:-1}
+  .plan{grid-template-columns:1fr 1fr}
+  .stunde,.online{padding:22px 18px}
+  .online{grid-template-columns:1fr}
+  .online img.qr{justify-self:center}
+  .material li,.fuerdich li{grid-template-columns:1fr}
+}
+@media print{.fortschritt,.nav-wrap,.toast,.knoepfe,.btn{display:none!important}body{background:#fff}.stunde,.online{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="fortschritt" aria-hidden="true"><span id="balken"></span></div>
+
+<div class="nav-wrap">
+<nav aria-label="Abschnitte">
+  <a href="#start">Start</a>
+  <a href="#stunde-1">Stunde 1</a>
+  <a href="#stunde-2">Stunde 2</a>
+  <a href="#stunde-3">Stunde 3</a>
+  <a href="#stunde-4">Stunde 4</a>
+  <a href="#online">iPad</a>
+  <a href="#fuer-dich">Für dich</a>
+</nav>
+</div>
+
+<main>
+<header class="hero" id="start">
+  <div>
+    <p class="kicker">Förderschwerpunkt Lernen · 7. Klasse · Deutsch</p>
+    <h1>Text<mark>detektive</mark></h1>
+    <p class="lead">Wichtige Wörter finden und unterstreichen. Eine Einheit für einen Dienstag mit vier Stunden.</p>
+    <ul class="chips">
+      <li>4 Stunden</li>
+      <li>Papier und iPad</li>
+      <li>einfache Sprache</li>
+    </ul>
+    <div class="knoepfe">
+      <a class="btn gelb" href="#stunde-1">Mit Stunde 1 starten</a>
+      <a class="btn" href="download/Textdetektive-Alles.zip" download>Alles als ZIP laden</a>
+    </div>
+  </div>
+  <img src="uebung/assets/detektiv-lupe.png" alt="Der Textdetektiv hält eine Lupe vors Auge." width="200" height="200">
+</header>
+
+<section aria-labelledby="plan-titel">
+  <h2 id="plan-titel">Der Plan</h2>
+  <p class="unter">Jede Stunde hat einen eigenen Abschnitt mit allem Material zum Öffnen, Drucken und Herunterladen.</p>
+  <ol class="plan">
+    <li><a href="#stunde-1"><b>1</b><span>Einstieg</span></a></li>
+    <li><a href="#stunde-2"><b>2</b><span>Üben in Stufen</span></a></li>
+    <li><a href="#stunde-3"><b>3</b><span>Anwenden</span></a></li>
+    <li><a href="#stunde-4"><b>4</b><span>Sichern</span></a></li>
+  </ol>
+</section>
+
+<section id="stunde-1" aria-labelledby="st1-titel">
+  <div class="stunde">
+    <div class="stunde-kopf"><span class="badge" aria-hidden="true">1</span><h2 id="st1-titel">Stunde 1: Einstieg</h2></div>
+    <p class="ziel">Die Kinder erleben, dass man beim Kürzen die wichtigen Wörter behält. Das ist der Grund fürs Markieren.</p>
+    <ul class="ablauf"><li>Telegramm-Spiel</li><li>Wortkarten sortieren</li><li>Merksatz: Marker-Wörter zeigen, worum es geht</li></ul>
+    <p class="folien">PowerPoint: Folien 1 bis 10</p>
+    <ul class="material"><li><div><strong>Telegramm-Spiel</strong><small>Nachrichten auf fünf Wörter kürzen. Der Einstieg in die Einheit. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/01-telegramm-spiel.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/01-telegramm-spiel.pdf" download>PDF laden</a></div></li><li><div><strong>Wortkarten</strong><small>24 Karten zum Ausschneiden: Marker-Wort oder Streich-Wort? · 2 Seiten</small></div><div class="aktionen"><a class="btn klein gelb" href="material/02-karten-marker-streich.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/02-karten-marker-streich.pdf" download>PDF laden</a></div></li></ul>
+    <div class="zip-zeile">
+      <a class="btn klein" href="download/Textdetektive-Stunde-1.zip" download>Stunde 1 als ZIP (PDF)</a>
+      
+    </div>
+  </div>
+</section>
+
+<section id="stunde-2" aria-labelledby="st2-titel">
+  <div class="stunde">
+    <div class="stunde-kopf"><span class="badge" aria-hidden="true">2</span><h2 id="st2-titel">Stunde 2: Üben in Stufen</h2></div>
+    <p class="ziel">Die Kinder finden Marker-Wörter erst in Sätzen, dann in Kurztexten und Abschnitten.</p>
+    <ul class="ablauf"><li>Die vier Detektiv-Schritte und der Streich-Test</li><li>Stufe 1 bis 3 üben</li><li>Marker-Duell zu zweit</li><li>iPad-Übung Stufe 1 bis 3</li></ul>
+    <p class="folien">PowerPoint: Folien 11 bis 20</p>
+    <ul class="material"><li><div><strong>Stufe 1: Einzelsätze</strong><small>Sechs Sätze. Marker-Wörter finden und unterstreichen. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/03-stufe1-saetze.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/03-stufe1-saetze.pdf" download>PDF laden</a></div></li><li><div><strong>Stufe 2: Kurztexte</strong><small>Drei Kurztexte mit je drei Sätzen und einer Frage. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/04-stufe2-kurztexte.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/04-stufe2-kurztexte.pdf" download>PDF laden</a></div></li><li><div><strong>Stufe 3: Abschnitte</strong><small>Zwei längere Abschnitte mit Fragen und Streich-Test. · 2 Seiten</small></div><div class="aktionen"><a class="btn klein gelb" href="material/05-stufe3-abschnitte.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/05-stufe3-abschnitte.pdf" download>PDF laden</a></div></li><li><div><strong>Marker-Duell</strong><small>Zu zweit denselben Text markieren und die Ergebnisse vergleichen. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/06-marker-duell.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/06-marker-duell.pdf" download>PDF laden</a></div></li></ul>
+    <div class="zip-zeile">
+      <a class="btn klein" href="download/Textdetektive-Stunde-2.zip" download>Stunde 2 als ZIP (PDF)</a>
+      <a class="btn klein" href="uebung/">iPad-Übung öffnen</a>
+    </div>
+  </div>
+</section>
+
+<section id="stunde-3" aria-labelledby="st3-titel">
+  <div class="stunde">
+    <div class="stunde-kopf"><span class="badge" aria-hidden="true">3</span><h2 id="st3-titel">Stunde 3: Anwenden</h2></div>
+    <p class="ziel">Die Kinder stellen Fragen an einen Abschnitt, fassen ihn zusammen und sichern die Schritte im Heft.</p>
+    <ul class="ablauf"><li>Fragen zum Abschnitt: Wer? Was? Wo? Wann?</li><li>Zusammenfassen mit Satzanfängen</li><li>Drei Stationen</li><li>Hefteintrag</li></ul>
+    <p class="folien">PowerPoint: Folien 21 bis 24</p>
+    <ul class="material"><li><div><strong>Text Schlaf und Stationen</strong><small>Text mit Fragen zum Ankreuzen, Zusammenfassung und drei Stationskarten. · 3 Seiten</small></div><div class="aktionen"><a class="btn klein gelb" href="material/07-stationen-anwenden.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/07-stationen-anwenden.pdf" download>PDF laden</a></div></li><li><div><strong>Hefteintrag</strong><small>So finde ich Schlüsselwörter. Als A4-Blatt und als A5-Blatt zum Einkleben. · 2 Seiten</small></div><div class="aktionen"><a class="btn klein gelb" href="material/08-hefteintrag.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/08-hefteintrag.pdf" download>PDF laden</a></div></li></ul>
+    <div class="zip-zeile">
+      <a class="btn klein" href="download/Textdetektive-Stunde-3.zip" download>Stunde 3 als ZIP (PDF)</a>
+      
+    </div>
+  </div>
+</section>
+
+<section id="stunde-4" aria-labelledby="st4-titel">
+  <div class="stunde">
+    <div class="stunde-kopf"><span class="badge" aria-hidden="true">4</span><h2 id="st4-titel">Stunde 4: Sichern</h2></div>
+    <p class="ziel">Die Kinder ordnen alle Lesestrategien ein und zeigen im Lern-Check, was sie können.</p>
+    <ul class="ablauf"><li>Lesestrategien vor, während, nach</li><li>Kartenspiel</li><li>Lern-Check mit Ampel</li><li>Hausaufgabe erklären</li></ul>
+    <p class="folien">PowerPoint: Folien 25 bis 29</p>
+    <ul class="material"><li><div><strong>Lesestrategien-Kartenspiel</strong><small>Karten zu vor, während und nach dem Lesen zuordnen. · 2 Seiten</small></div><div class="aktionen"><a class="btn klein gelb" href="material/09-lesestrategien-kartenspiel.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/09-lesestrategien-kartenspiel.pdf" download>PDF laden</a></div></li><li><div><strong>Lesezeichen</strong><small>Die drei Lesestrategien auf einen Blick, zum Ausschneiden. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/10-lesezeichen.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/10-lesezeichen.pdf" download>PDF laden</a></div></li><li><div><strong>Lern-Check</strong><small>Sicherung mit Ankreuzen, Markieren und Ampel. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/11-lern-check.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/11-lern-check.pdf" download>PDF laden</a></div></li><li><div><strong>Hausaufgabe</strong><small>Ein kurzer Text über den Wellensittich. Dauert fünf Minuten. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/12-hausaufgabe.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/12-hausaufgabe.pdf" download>PDF laden</a></div></li></ul>
+    <div class="zip-zeile">
+      <a class="btn klein" href="download/Textdetektive-Stunde-4.zip" download>Stunde 4 als ZIP (PDF)</a>
+      <a class="btn klein" href="uebung/">iPad-Übung öffnen</a>
+    </div>
+  </div>
+</section>
+
+<section id="online" aria-labelledby="online-titel">
+  <h2 id="online-titel">Übungen für das iPad</h2>
+  <p class="unter">Die Kinder tippen wichtige Wörter an, machen den Streich-Test und bekommen freundliche Rückmeldung. Kein Login, keine Daten werden gesendet.</p>
+  <div class="online">
+    <div>
+      <p><a class="btn gelb" href="uebung/">Übungen öffnen</a></p>
+      <p>Adresse zum Eintippen oder Teilen:<br><span class="adresse" id="adresse-uebung">https://fhe86.github.io/textdetektive/uebung/</span></p>
+      <p><button class="btn klein" type="button" data-kopieren="https://fhe86.github.io/textdetektive/uebung/">Link kopieren</button>
+         <button class="btn klein" type="button" data-kopieren="https://fhe86.github.io/textdetektive/">Link zu dieser Seite kopieren</button></p>
+      <ul class="tipps">
+        <li>Stufe 1 bis 3 passen zu Stunde 2.</li>
+        <li>Der Lern-Check passt zu Stunde 4.</li>
+        <li>Auf dem iPad: Teilen, dann Zum Home-Bildschirm. Dann liegt die App wie ein Icon bereit.</li>
+      </ul>
+    </div>
+    <img class="qr" src="assets/qr-uebung.png" alt="QR-Code zu den iPad-Übungen" width="170" height="170">
+  </div>
+</section>
+
+<section id="fuer-dich" aria-labelledby="dich-titel">
+  <h2 id="dich-titel">Für dich</h2>
+  <p class="unter">Diese Dateien sind für die Lehrerin gedacht.</p>
+  <ul class="fuerdich">
+    <li><div><strong>Verlaufsplan</strong><small>Alle vier Stunden auf einer Seite: Zeiten, Methoden, Material. · 1 Seite</small></div><div class="aktionen"><a class="btn klein gelb" href="material/00-verlaufsplan.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/00-verlaufsplan.pdf" download>PDF laden</a></div></li>
+    <li><div><strong>Lösungen</strong><small>Alle Musterlösungen mit hervorgehobenen Marker-Wörtern. · 3 Seiten</small></div><div class="aktionen"><a class="btn klein gelb" href="material/13-loesungen.html" target="_blank" rel="noopener">Öffnen und drucken</a><a class="btn klein" href="pdf/13-loesungen.pdf" download>PDF laden</a></div></li>
+    <li><div><strong>PowerPoint</strong><small>29 Folien, selbst änderbar, mit Sprechernotizen. 1.3 MB</small></div><div class="aktionen"><a class="btn klein gelb" href="download/Textdetektive-Schluesselwoerter.pptx" download>PowerPoint laden</a></div></li>
+    <li><div><strong>Alles in einem ZIP</strong><small>Alle PDFs nach Stunden sortiert, dazu die PowerPoint. 4.1 MB</small></div><div class="aktionen"><a class="btn klein" href="download/Textdetektive-Alles.zip" download>ZIP laden</a></div></li>
+  </ul>
+  <div class="hinweis">
+    <p><strong>Gut zu wissen:</strong> Das Material ist noch nicht im Unterricht erprobt. Alle Texte sind selbst geschrieben und in Stufen geordnet, mit höchstens 10 bis 12 Wörtern pro Satz.</p>
+    <p>Lehrplanbezug: LehrplanPLUS Bayern, Förderschule, Förderschwerpunkt Lernen, Deutsch, Lernbereich 2 Lesen. <a href="https://www.lehrplanplus.bayern.de/fachlehrplan/foerderschule/7/deutsch/foerderschwerpunkt/lernen" rel="noopener">Zum Lehrplan</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>Textdetektive. Die Seite ist öffentlich erreichbar, enthält aber keine Schülerdaten. Die iPad-Übungen speichern nichts außerhalb des Geräts.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var balken=document.getElementById('balken');
+  function fortschritt(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    balken.style.width=(max>0?Math.min(100,h.scrollTop/max*100):0)+'%';
+  }
+  window.addEventListener('scroll',fortschritt,{passive:true});
+  window.addEventListener('resize',fortschritt);
+  fortschritt();
+
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(eintraege){
+      eintraege.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.classList.toggle('aktiv',a.getAttribute('href')==='#'+e.target.id)});
+        }
+      });
+    },{rootMargin:'-30% 0px -60% 0px'});
+    links.forEach(function(a){
+      var ziel=document.querySelector(a.getAttribute('href'));
+      if(ziel) io.observe(ziel);
+    });
+  }
+
+  var toast=document.getElementById('toast'),timer;
+  function melde(text){
+    toast.textContent=text;toast.classList.add('zeigen');
+    clearTimeout(timer);timer=setTimeout(function(){toast.classList.remove('zeigen')},2200);
+  }
+  function kopiere(text){
+    if(navigator.clipboard&&window.isSecureContext){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(ok,fehler){
+      var t=document.createElement('textarea');
+      t.value=text;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';
+      document.body.appendChild(t);t.select();
+      try{document.execCommand('copy')?ok():fehler()}catch(e){fehler(e)}
+      document.body.removeChild(t);
+    });
+  }
+  [].forEach.call(document.querySelectorAll('[data-kopieren]'),function(b){
+    b.addEventListener('click',function(){
+      var text=b.getAttribute('data-kopieren');
+      kopiere(text).then(function(){melde('Link kopiert')},function(){melde('Kopieren ging nicht. Adresse bitte von Hand markieren.')});
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lösungen Textdetektive</title>
+<style>
+:root{--creme:#FCF5E9;--navy:#14294D;--grau:#5B6577;--gelb:#FFE14D;--gelb2:#FFF0A3;--beige:#D9C3A0;--gruen:#3E8E6B;--orange:#C9822B}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:var(--creme);color:var(--navy);font-family:Verdana,Arial,Helvetica,sans-serif;font-size:13pt;line-height:1.6;text-align:left}
+.bar{position:sticky;top:0;z-index:5;background:var(--creme);border-bottom:1px solid var(--beige);padding:10px 16px;display:flex;gap:14px;align-items:center;font-size:11pt;color:var(--grau)}
+.btn{font:inherit;font-weight:bold;color:var(--navy);background:var(--gelb);border:2px solid var(--navy);border-radius:8px;padding:8px 16px;cursor:pointer;min-height:44px}
+.btn:hover{background:var(--gelb2)}
+.page{background:#fff;width:210mm;margin:14px auto;padding:15mm;border:1px solid var(--beige)}
+.landscape .page{width:297mm}
+h1{font-size:21pt;line-height:1.25;margin:0}
+h2{font-size:15pt;margin:0 0 2mm}
+p{margin:0 0 2mm}
+.sub{color:var(--grau);font-size:12.5pt;margin:0}
+mark{background:var(--gelb);color:var(--navy);padding:0 .6mm;border-radius:1mm}
+.kopf{display:grid;grid-template-columns:1fr 26mm;column-gap:6mm;align-items:center;border-bottom:.6mm solid var(--navy);padding-bottom:3mm;margin-bottom:5mm}
+.kopf img{width:26mm;height:26mm;grid-column:2;grid-row:1 / span 2}
+.felder{display:flex;gap:3mm;align-items:flex-end;font-size:12.5pt;margin-top:2mm}
+.felder .f{border-bottom:.35mm solid var(--navy);height:7mm}
+.felder .n{width:62mm}.felder .d{width:34mm}
+.line{border-bottom:.3mm solid var(--navy);height:9.5mm}
+.lines{margin:1mm 0}
+.lese{font-size:15.5pt;line-height:1.95}
+.aufg{font-size:13pt}
+.box{border:.5mm solid var(--navy);border-radius:2.5mm;padding:3mm 4mm}
+.box.beige{border-color:var(--beige);border-width:.7mm}
+.hinweis{border:.5mm dashed var(--navy);border-radius:2.5mm;padding:2.5mm 4mm;font-size:13pt}
+.cb{display:inline-block;width:5.2mm;height:5.2mm;border:.5mm solid var(--navy);border-radius:1mm;vertical-align:-1mm;margin-right:2.5mm;flex:none}
+.opt{display:flex;align-items:flex-start;margin:1.5mm 0}
+.nr{display:inline-flex;align-items:center;justify-content:center;width:9mm;height:9mm;border:.5mm solid var(--navy);border-radius:50%;font-weight:bold;font-size:13pt;flex:none}
+.gap{display:inline-block;min-width:26mm;border-bottom:.35mm solid var(--navy);height:1.1em;vertical-align:-.15em}
+.cut{border:.35mm dashed var(--grau)}
+.tele{display:flex;gap:2.5mm;margin-top:2mm}
+.tele .w{flex:1;height:15mm;border:.5mm solid var(--navy);border-radius:1.5mm;position:relative}
+.tele .w:after{content:"1 Euro";position:absolute;right:1.5mm;bottom:.5mm;font-size:8.5pt;color:var(--grau)}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{display:flex;gap:2.5mm;margin-bottom:3mm;font-size:12pt;line-height:1.45}
+.steps li:before{counter-increment:s;content:counter(s);display:inline-flex;align-items:center;justify-content:center;width:7mm;height:7mm;border:.45mm solid var(--navy);border-radius:50%;font-weight:bold;font-size:11pt;flex:none}
+@page{size:A4;margin:15mm}
+@media print{
+ body{background:#fff}
+ .bar,.noprint{display:none!important}
+ .page{width:auto;margin:0;padding:0;border:0;break-after:page;break-inside:avoid}
+ .page:last-child{break-after:auto}
+}
+</style>
+</head>
+<body class="">
+<div class="bar noprint"><button class="btn" type="button" onclick="window.print()">Als PDF speichern</button><span>Als PDF speichern: Im Druckdialog Ziel PDF wählen.</span></div>
+<main>
+<section class="page "><style>.ls{font-size:11pt;line-height:1.7}.ls h2{font-size:12.5pt;margin:4mm 0 1.5mm;border-bottom:.35mm solid var(--beige)}.ls p{margin:0 0 1mm}.ls .k{color:var(--grau)}.ls table{border-collapse:collapse;width:100%}.ls td{padding:.5mm 2mm .5mm 0;vertical-align:top}</style><div class="ls"><header class="kopf"><div><h1>Lösungen (Lehrerblatt)</h1><p class="sub">Marker-Wörter sind gelb hervorgehoben.</p></div></header><h2>Std 1: Telegramme (Muster)</h2><p><b>T1:</b> Bus verspätet. Warte Eingang. <span class='k'>(Original: Ich komme heute später, weil mein Bus Verspätung hat. Bitte warte am Eingang auf mich.)</span></p><p><b>T2:</b> Morgen Sportzeug. Halle Basketball. <span class='k'>(Original: Du musst morgen unbedingt dein Sportzeug mitbringen, weil wir in der Halle Basketball spielen.)</span></p><p><b>T3:</b> Oma Geburtstag. Sonntag zehn Uhr. <span class='k'>(Original: Oma hat Geburtstag. Wir fahren am Sonntag um zehn Uhr zu ihr.)</span></p><h2>Std 1: Wortkarten</h2><p><b>Marker-Wörter:</b> Hund, Garten, Fußball, Pizza, Euro, Handy, Akku, Igel, Winter, Samstag, Bus, Hausaufgaben.</p><p><b>Streich-Wörter:</b> der, die, und, im, ist, sehr, dann, auch, mal, aber, ein, noch.</p><h2>Stufe 1: Einzelsätze</h2><p><b>1.</b> <mark>Lena</mark> <mark>kauft</mark> im Supermarkt drei <mark>Äpfel</mark>.</p><p><b>2.</b> Der <mark>Hund</mark> bellt laut im <mark>Garten</mark>.</p><p><b>3.</b> Am <mark>Samstag</mark> spielt <mark>Tim</mark> <mark>Fußball</mark>.</p><p><b>4.</b> Das <mark>Handy</mark> hat keinen <mark>Akku</mark> mehr.</p><p><b>5.</b> Die <mark>Pizza</mark> kostet <mark>sieben Euro</mark>.</p><p><b>6.</b> Im <mark>Winter</mark> <mark>schlafen</mark> <mark>Igel</mark> unter Laub.</p><h2>Stufe 2: Kurztexte</h2><p><b>Text A:</b> <mark>Maya</mark> hat ein <mark>neues Handy</mark>. Sie nutzt es jeden Tag <mark>zwei Stunden</mark>. Abends legt sie es in die <mark>Küche</mark>. <span class="k">Antwort: In der Küche.</span></p><p><b>Text B:</b> Der <mark>Igel</mark> ist ein kleines Tier. Er frisst <mark>Käfer</mark> und <mark>Würmer</mark>. Im <mark>Winter</mark> <mark>schläft</mark> er im <mark>Laub</mark>. <span class="k">Antwort: Käfer und Würmer.</span></p><p><b>Text C:</b> <mark>Jonas</mark> spielt <mark>Handball</mark>. Das Training ist <mark>dienstags</mark> um <mark>17 Uhr</mark>. Er braucht <mark>Hallenschuhe</mark>. <span class="k">Antwort: Dienstags um 17 Uhr.</span></p></div></section><section class="page "><style>.ls{font-size:11pt;line-height:1.7}.ls h2{font-size:12.5pt;margin:4mm 0 1.5mm;border-bottom:.35mm solid var(--beige)}.ls p{margin:0 0 1mm}.ls .k{color:var(--grau)}.ls table{border-collapse:collapse;width:100%}.ls td{padding:.5mm 2mm .5mm 0;vertical-align:top}</style><div class="ls"><h2 style="margin-top:0">Stufe 3: Abschnitte</h2><p><b>Text D:</b> Pizza kommt aus <mark>Italien</mark>. Dort backen Pizzabäcker sie im <mark>Steinofen</mark>. Die Pizza ist <mark>dünn</mark> und <mark>knusprig</mark>. Früher aßen vor allem <mark>arme Leute</mark> Pizza. Heute essen Menschen auf der <mark>ganzen Welt</mark> Pizza. In Deutschland ist <mark>Tiefkühlpizza</mark> sehr beliebt. <span class="k">Antworten: Aus Italien. Arme Leute.</span></p><p><b>Text E:</b> Delfine leben im <mark>Meer</mark>. Sie sind <mark>keine Fische</mark>, sondern <mark>Säugetiere</mark>. <mark>Delfine atmen Luft</mark>. Dafür <mark>tauchen</mark> sie immer wieder <mark>auf</mark>. Sie verständigen sich mit <mark>Pfeiftönen</mark>. Delfine leben in <mark>Gruppen</mark>. <span class="k">Antworten: Nein, sie sind Säugetiere. Sie atmen Luft.</span></p><h2>Marker-Duell</h2><p><b>Text G (Marker-Duell), Vorschlag:</b> Hamster sind <mark>kleine Nagetiere</mark>. Sie schlafen am Tag und sind <mark>nachts wach</mark>. Im Käfig brauchen sie ein <mark>Laufrad</mark>. Hamster fressen <mark>Körner</mark> und <mark>Gemüse</mark>. Sie leben am liebsten <mark>allein</mark>. <span class="k">Es gibt mehrere gute Lösungen. Entscheidend: höchstens 3 pro Satz, Streich-Test bestanden.</span></p><h2>Std 3: Text F (Stationen)</h2><p><b>Abschnitt 1:</b> Jugendliche brauchen viel <mark>Schlaf</mark>. Am besten sind <mark>acht bis zehn Stunden</mark> pro Nacht. Im Schlaf ruht sich der <mark>Körper</mark> aus. Auch das <mark>Gehirn sortiert</mark>, was wir gelernt haben.</p><p><b>Abschnitt 2:</b> Viele Jugendliche schlafen <mark>zu wenig</mark>. Oft liegt das <mark>Handy</mark> im Bett. Das <mark>Licht</mark> vom Bildschirm <mark>hält wach</mark>. Besser ist: Das Handy <mark>eine Stunde</mark> vor dem Schlafen <mark>weglegen</mark>.</p><p><b>Fragen:</b> 1) 8 bis 10. 2) Es sortiert, was wir gelernt haben. 3) Das Licht vom Bildschirm hält wach. 4) Handy eine Stunde vorher weglegen.</p><p><b>Zusammenfassung, Beispiel:</b> Jugendliche brauchen acht bis zehn Stunden Schlaf. Das Gehirn sortiert im Schlaf, was wir gelernt haben. Das Handy hält mit seinem Licht wach. Besser ist: Das Handy eine Stunde vor dem Schlafen weglegen.</p></div></section><section class="page "><style>.ls{font-size:11pt;line-height:1.7}.ls h2{font-size:12.5pt;margin:4mm 0 1.5mm;border-bottom:.35mm solid var(--beige)}.ls p{margin:0 0 1mm}.ls .k{color:var(--grau)}.ls table{border-collapse:collapse;width:100%}.ls td{padding:.5mm 2mm .5mm 0;vertical-align:top}</style><div class="ls"><h2 style="margin-top:0">Hefteintrag</h2><p><b>Lücken Hefteintrag:</b> 1) markieren. 2) Wann. 3) 3. 4) Marker-Wörter.</p><h2>Std 4: Kartenspiel</h2><p><b>Kartenspiel:</b> VOR: Bilder ansehen. Überschrift lesen. Vermutungen sagen. Überlegen: Was weiß ich schon?</p><p>WÄHREND: Marker-Wörter unterstreichen. Unbekannte Wörter markieren. Zu jedem Abschnitt eine Frage stellen. Abschnittsweise lesen.</p><p>NACH: Zusammenfassen in 1 bis 2 Sätzen. Fragen beantworten. Dem Partner erzählen. Prüfen: Stimmen meine Vermutungen?</p><h2>Std 4: Lern-Check</h2><p><b>Lern-Check:</b> 1) Am <mark>Freitag</mark> fahren wir mit dem <mark>Bus</mark> zum <mark>Schwimmbad</mark>. 2) ein Wort, das wichtig ist. 3) Damit ich das Wichtige schnell wiederfinde. 4) Ampel: Selbsteinschätzung, keine Lösung.</p><h2>Hausaufgabe</h2><p><b>Hausaufgabe, Text H:</b> Wellensittiche sind <mark>kleine Papageien</mark>. Sie kommen aus <mark>Australien</mark>. In der Natur leben sie in großen <mark>Schwärmen</mark>. Deshalb sollte man sie <mark>nie allein</mark> halten. Sie fressen am liebsten <mark>Samen</mark>. <span class="k">Muster-Telegramm: Wellensittich. Australien. Nie allein. Frisst Samen.</span></p></div></section>
+</main>
+</body>
+</html>

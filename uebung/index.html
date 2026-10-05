@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Textdetektive</title>
+  <meta name="description" content="Übungen zum Finden von Schlüsselwörtern: Markieren, Streich-Test, Fragen und Lern-Check.">
+  <meta name="theme-color" content="#FCF5E9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Textdetektive">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="progress" class="progress" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-bar" class="progress-bar"></div></div>
+
+  <header id="topbar" class="topbar" hidden>
+    <div class="wrap topbar-in">
+      <button id="home-btn" class="textbtn" type="button">Zur Auswahl</button>
+      <span id="crumb" class="crumb"></span>
+    </div>
+  </header>
+
+  <main id="main" class="wrap main" tabindex="-1"></main>
+
+  <nav id="nav" class="nav" aria-label="Weiter und zurück" hidden>
+    <div class="wrap nav-in">
+      <button id="back-btn" class="btn btn-ghost" type="button">Zurück</button>
+      <button id="next-btn" class="btn btn-primary" type="button">Weiter</button>
+    </div>
+  </nav>
+
+  <div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <h2 id="modal-title">Von vorn anfangen?</h2>
+      <p>Dein Fortschritt auf diesem Gerät wird gelöscht. Danach fängst du wieder ganz am Anfang an.</p>
+      <div class="btnrow">
+        <button id="modal-cancel" class="btn btn-ghost" type="button">Abbrechen</button>
+        <button id="modal-ok" class="btn btn-primary" type="button">Ja, von vorn</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="daten.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
